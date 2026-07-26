@@ -1,0 +1,16 @@
+<h1>Edit Food</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="name" value="{{ item.name }}">
+    <br><br>
+
+    <input type="number" name="price" value="{{ item.price }}">
+    <br><br>
+
+    <textarea name="description">{{ item.description }}</textarea>
+    <br><br>
+
+    <button type="submit">Update</button>
+</form>

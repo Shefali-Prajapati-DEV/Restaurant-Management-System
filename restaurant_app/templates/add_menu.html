@@ -1,0 +1,42 @@
+<h1>Add Menu Item</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    Name:
+    <input type="text" name="name"><br><br>
+
+    Price:
+    <input type="number" name="price"><br><br>
+
+    Description:
+    <textarea name="description"></textarea><br><br>
+
+    <button type="submit">Add Item</button>
+
+</form>
+
+
+
+<h1>Login</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    Username:
+    <input type="text" name="username">
+
+    <br><br>
+
+    Password:
+    <input type="password" name="password">
+
+    <br><br>
+
+    <button type="submit">
+        Login
+    </button>
+
+</form>

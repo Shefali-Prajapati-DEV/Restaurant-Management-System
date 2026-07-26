@@ -1,0 +1,12 @@
+from django.contrib import admin
+from .models import Category
+from.models import Menu
+
+admin.site.register(Menu)
+
+
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
