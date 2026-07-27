@@ -27,6 +27,7 @@ class CategoryAPIView(APIView):
         serializer = CategorySerializer(data=request.data)
 
         if serializer.is_valid():
+            
 
             serializer.save()
 
