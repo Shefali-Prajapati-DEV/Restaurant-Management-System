@@ -27,7 +27,7 @@ class CategoryAPIView(APIView):
         serializer = CategorySerializer(data=request.data)
 
         if serializer.is_valid():
-            
+
 
             serializer.save()
 
@@ -35,6 +35,7 @@ class CategoryAPIView(APIView):
                 serializer.data,
                 status=status.HTTP_201_CREATED
             )
+        
 
         return Response(
             serializer.errors,
