@@ -51,6 +51,7 @@ class CategoryAPIView(APIView):
 
             categories = Category.objects.all()
 
+
             serializer = CategorySerializer(categories, many=True)
 
             return Response(serializer.data)
@@ -109,6 +110,7 @@ class RegisterAPIView(APIView):
         )
     
 class LoginAPIView(APIView):
+
 
     def post(self, request):
 
