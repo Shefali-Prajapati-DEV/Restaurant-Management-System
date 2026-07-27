@@ -9,8 +9,10 @@ from django.contrib.auth.models import User
 
 def menu(request):
     items = Menu.objects.all()
+    
 
     return render(request, 'menu.html', {'items':items})
+   
 
 
 @login_required
@@ -125,3 +127,5 @@ def signup(request):
         return redirect('login')
 
     return render(request,'signup.html')
+
+
