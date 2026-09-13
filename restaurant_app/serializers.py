@@ -1,6 +1,7 @@
 from rest_framework import serializers
-from .models import Category
+from .models import Cart, CartItem, Category, Menu
 from django.contrib.auth.models import User
+
  
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -33,4 +34,26 @@ class LoginSerializer(serializers.Serializer):
 
     password = serializers.CharField(write_only=True)
 
-    
+
+
+class MenuSerializer(serializers.ModelSerializer):
+
+    category = CategorySerializer(read_only=True)
+
+    class Meta:
+        model = Menu
+        fields = "__all__"
+
+
+class CartItemSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CartItem
+        fields = ['id', 'menu', 'quantity','cart']
+
+class CartSerializer(serializers.ModelSerializer):
+    items = CartItemSerializer(many=True, read_only=True, source='cartitem_set')
+
+    class Meta:
+        model = Cart
+        fields = ['id', 'user', 'items']
